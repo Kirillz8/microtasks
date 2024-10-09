@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Button} from './components/Button';
+import {StateHook} from './components/UseState';
+import {Money} from './components/Money';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const Button1Foo = (sub: string, age: number, city: string) => {
+        console.log(`Im ${sub}. Age: ${age}. I live in ${city}.`);
+    }
+
+    const Button2Foo = (sub: string) => {
+        console.log(`Im ${sub}`)
+    }
+
+    const ButtonStupid = () => {
+        console.log('Im stupid button')
+    }
+
+    return (
+        <div className="App">
+            <Button name={'MyYouTubeChanel-1'} callBack={() => Button1Foo('Kirill', 21, 'Moscow')}/>
+            <Button name={'MyYouTubeChanel-2'} callBack={() => Button2Foo('Anton')}/>
+            <Button name={'Stupid Button'} callBack={ButtonStupid}/>
+            <StateHook/>
+            <Money/>
+        </div>
+    );
 }
 
 export default App;
